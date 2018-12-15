@@ -9,8 +9,17 @@
 <body>
 
 	<h1>Team Page</h1>
-	<p>Information about the team.</p>
+	<p>Please use the form below to register for the upcoming tryout.</p>
+	
+	<form action="#" th:action="@{/}" th:object="${player}" method="post">
 
+			<input type="text" th:field="*{name}" placeholder="Name" />
+			<input type="text" th:field="*{height}" placeholder="Height"/>
+			<button type="submit">Register</button>
+
+	</form>
+	
+	
 </body>
 
 </html>
