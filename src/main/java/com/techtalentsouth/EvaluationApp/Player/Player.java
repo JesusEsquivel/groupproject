@@ -1,5 +1,6 @@
 package com.techtalentsouth.EvaluationApp.Player;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,10 @@ public class Player {
 		this.dribbling = 0;
 		this.defense = 0;
 		this.intangibles = null;
+	}
+	
+	Player() {
+		//empty constructor for Post form. 
 	}
 
 	public String getName() {
@@ -96,6 +101,7 @@ public class Player {
 				+ ", dribbling=" + dribbling + ", defense=" + defense + ", "
 				+ (intangibles != null ? "intangibles=" + intangibles : "") + "]";
 	}
+	
 	
 	
 

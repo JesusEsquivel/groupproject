@@ -12,10 +12,17 @@
 	<p>Please use the form below to register for the upcoming tryout.</p>
 	
 	<form action="#" th:action="@{/}" th:object="${player}" method="post">
-
+	
 			<input type="text" th:field="*{name}" placeholder="Name" />
-			<input type="text" th:field="*{height}" placeholder="Height"/>
-			<button type="submit">Register</button>
+			<label>Height: 
+				<select th:field="*{height}">
+				<option
+					th:each="heightValue: ${allHeightValues}"
+					th:value="${heightValue}"
+					th:text="${heightValue}" ></option>
+				</select>
+				<button type="submit">Register</button>
+			</label>
 
 	</form>
 	
