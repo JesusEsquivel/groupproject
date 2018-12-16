@@ -13,7 +13,7 @@
 	
 	<form action="#" th:action="@{/}" th:object="${player}" method="post">
 	
-			<input type="text" th:field="*{name}" placeholder="Name" />
+			<input type="text" th:field="*{name}" placeholder="Full Name" />
 			<label>Height: 
 				<select th:field="*{height}">
 				<option
@@ -26,7 +26,8 @@
 
 	</form>
 	
-	
+	<p><a href="/all_players">Player List</a></p>
+	<p><a href="/team">Build Your Team?</a></p>
 </body>
 
 </html>
