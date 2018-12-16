@@ -55,7 +55,7 @@ public class PlayerController {
 	}
 	
 	//saves the edits to the player's skill level
-	@PutMapping("/players/edit/{id}")
+	@PutMapping("/players/edit")
 	public ModelAndView saveUpdates(Player player) {
 		ModelAndView mv = new ModelAndView("redirect:/players/all");
 		playerRepository.save(player);
