@@ -8,7 +8,7 @@
 	<h1>Edit Player</h1>
 		
 		
- 	<form action="#" th:action="@{/edit}" th:object="${player}" th:method="put">
+ 	<form action="#" th:action="@{/players/edit/{id}}" th:object="${player}" th:method="put">
  		
  		
  		<input type="hidden" th:field="*{id}" />

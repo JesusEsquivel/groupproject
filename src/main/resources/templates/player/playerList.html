@@ -29,7 +29,7 @@
 		<td th:text="${player.dribbling != 0}? ${player.dribbling} : '-'"></td>
 		<td th:text="${player.defense != 0}? ${player.defense} : '-'"></td>
         <td th:text="${player.intangibles != null}? ${player.intangibles} : '-'"></td>
-        <td><a th:href="@{/edit/{id}(id=${player.id})}">Edit</a></td>
+        <td><a th:href="@{/players/edit/{id}(id=${player.id})}">Edit</a></td>
       </tr>
     </table>
     

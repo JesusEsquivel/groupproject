@@ -38,32 +38,34 @@ public class PlayerController {
 	}
 	
 	//lists all players
-	@GetMapping("/all_players")
+	@GetMapping("/players/all")
 	public ModelAndView getAllPlayers(Player player) {
 		ModelAndView mv = new ModelAndView("player/playerList");
 		mv.addObject("players", playerRepository.findAll());
 		return mv;
 	}
+	
 	// Shows the individual player to edit
-	@GetMapping("edit/{id}")
+	@GetMapping("players/edit/{id}")
 	public ModelAndView updatePlayer(@PathVariable("id") long id) {
 		ModelAndView mv = new ModelAndView("player/edit");
 		Optional<Player> player = playerRepository.findById(id);
 		mv.addObject("player", player);
 		return mv;
 	}
+	
+	//saves the edits to the player's skill level
+	@PutMapping("/players/edit/{id}")
+	public ModelAndView saveUpdates(Player player) {
+		ModelAndView mv = new ModelAndView("redirect:/players/all");
+		playerRepository.save(player);
+		return mv;
+	}
+	
 	// Values for radio buttons on edit page
 	@ModelAttribute("skillValues")
     public int[] getSkillValues() {
         return new int[] {1, 2, 3, 4, 5};
     }
-	
-	//saves the edits to the player's skill level
-	@PutMapping("/edit")
-	public ModelAndView saveUpdates(Player player) {
-		ModelAndView mv = new ModelAndView("redirect:/all_players");
-		playerRepository.save(player);
-		return mv;
-	}
 
 }

@@ -101,8 +101,5 @@ public class Player {
 				+ ", dribbling=" + dribbling + ", defense=" + defense + ", "
 				+ (intangibles != null ? "intangibles=" + intangibles : "") + "]";
 	}
-	
-	
-	
 
 }
