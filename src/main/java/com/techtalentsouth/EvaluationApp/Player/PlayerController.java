@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,7 +48,7 @@ public class PlayerController {
 	
 	// Shows the individual player to edit
 	@GetMapping("players/edit/{id}")
-	public ModelAndView updatePlayer(@PathVariable("id") long id) {
+	public ModelAndView updatePlayer(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("player/edit");
 		Optional<Player> player = playerRepository.findById(id);
 		mv.addObject("player", player);
@@ -56,7 +57,7 @@ public class PlayerController {
 	
 	//saves the edits to the player's skill level
 	@PutMapping("/players/edit")
-	public ModelAndView saveUpdates(Player player) {
+	public ModelAndView saveUpdates(Player player, Long id) {
 		ModelAndView mv = new ModelAndView("redirect:/players/all");
 		playerRepository.save(player);
 		return mv;
@@ -67,5 +68,14 @@ public class PlayerController {
     public int[] getSkillValues() {
         return new int[] {1, 2, 3, 4, 5};
     }
+	
+	//shows the form for editing a player
+	@DeleteMapping("/players/delete/{id}")
+	public ModelAndView deletePlayer(@PathVariable("id") Long id) {
+		ModelAndView mv = new ModelAndView("redirect:/players/all");
+		playerRepository.deleteById(id);
+		return mv;
+	}
+
 
 }

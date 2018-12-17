@@ -30,6 +30,11 @@
 		<td th:text="${player.defense != 0}? ${player.defense} : '-'"></td>
         <td th:text="${player.intangibles != null}? ${player.intangibles} : '-'"></td>
         <td><a th:href="@{/players/edit/{id}(id=${player.id})}">Edit</a></td>
+        <td>
+        	<form action="#" th:action="@{/players/delete/{id}(id=${player.id})}" th:method="delete" class="form-horizontal">
+				<button type="submit">Remove</button>
+			</form>
+        </td>
       </tr>
     </table>
     

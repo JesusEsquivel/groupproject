@@ -86,12 +86,17 @@ public class Player {
 		return intangibles;
 	}
 
+
 	public void setIntangibles(String intangibles) {
 		this.intangibles = intangibles;
 	}
 
 	public Long getId() {
 		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Override
