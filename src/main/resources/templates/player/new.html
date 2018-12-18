@@ -4,16 +4,28 @@
 <head>
 	<title>Sign up Here</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
+<div th:replace="fragments/nav :: navbar" ></div>
+  <div class="container">
+  <div class="new">
+  	<h1>You have registered successfully!</h1>
+	<h4> Thank you for showing interest in playing for our team.</h4>
+	<h4> Your player ID is: <span th:text="${player.id}"></span>. Please remember your number as it will be used to identify you during the tryout.</h4>
+     	<a class="card-panel hoverable red darken-2 btn-small" href="/">Back</a>
+  </div>
 
-	<h1>You have registered successfully!</h1>
-	<p> Thank you for showing interest in playing for our team.</p>
-	<p> Your player ID is: <span th:text="${player.id}"></span>. Please remember your number as it will be used to identify you during the tryout.</p>
+  </div>
+
 	
-	
-	<p><a href="/">Home</a></p>
+
+	<div th:replace="fragments/nav :: foot" ></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="javascript/index.js" ></script>
 </body>
 
 </html>

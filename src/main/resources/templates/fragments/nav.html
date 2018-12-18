@@ -1,0 +1,39 @@
+
+
+ <div th:fragment="navbar">
+	 <nav>
+    <div class="nav-wrapper red darken-2">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">HOME</a></li>
+        <li><a th:href="@{/players/all}">All players</a></li>
+        <li><a href="/team">Build Your Team?</a></li>
+      </ul>
+    </div>
+  </nav>
+</div> 
+
+<div th:fragment="foot">
+  <footer class="page-footer red darken-2">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <p class="white-text">© 2014 Copyright Text</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <p class="white-text">Home</p>
+            </div>
+          </div>
+       <!--    <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div> -->
+        </footer>
+</div>
+
+
+
+
+

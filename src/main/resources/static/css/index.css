@@ -1,5 +1,6 @@
 body{
     background-color: #222;
+   color: aliceblue;
 }
 
 .center-center{
@@ -44,13 +45,32 @@ body{
     color: honeydew;
 }
 .search{
-    margin-top: 20%;
-    width:50%;
+    margin-top: 10%;
+    width:30%;
     margin-left: auto;
     margin-right: auto; 
+    color: white;
+   
+    color: aliceblue;
 }
 
 .center{
     font-display: center;
     color: aliceblue;
 }
+p, h1 {
+	color: aliceblue;
+}
+.new{
+	height: 70vh;
+	color:aliceblue;
+}
+
+footer {
+   /* position:absolute; */
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
+}
+

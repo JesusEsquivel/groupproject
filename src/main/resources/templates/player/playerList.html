@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Player List</title>
+	  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+<div th:replace="fragments/nav :: navbar" ></div>
+<!-- 
+	  <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Height</th>
+        <th>Shooting</th>
+        <th>Passing</th>
+        <th>Dribbling</th>
+        <th>Defense</th>
+        <th>Intangibles</th>
+      </tr>
+      <tr th:each="player : ${players}">
+        <td th:text="${player.id}">N/A</td>
+        <td th:text="${player.name}">No Name Provided</td>
+        <td th:text="${player.height}"></td>
+        
+        <td th:text="${player.shooting != 0}? ${player.shooting} : '-'"></td>
+		<td th:text="${player.passing != 0}? ${player.passing} : '-'"></td>
+		<td th:text="${player.dribbling != 0}? ${player.dribbling} : '-'"></td>
+		<td th:text="${player.defense != 0}? ${player.defense} : '-'"></td>
+        <td th:text="${player.intangibles != null}? ${player.intangibles} : '-'"></td>
+        <td><a th:href="@{/players/edit/{id}(id=${player.id})}">Edit</a></td>
+        <td>
+        	<form action="#" th:action="@{/players/delete/{id}(id=${player.id})}" th:method="delete" class="form-horizontal">
+				<button type="submit">Remove</button>
+			</form>
+        </td>
+      </tr>
+    </table> -->
+    
+        <div class="container">
+            <h1 class=" center">TITLE</h1>
+            <div class="row">
+           <div  class="col s12 m3 " th:each="player : ${players}">
+                    <div  class="card card-panel hoverable">
+                    <div class="card-image">
+                        <img class="img" src="/img/athlete.jpg">
+                        <span class="card-title" th:text="${player.name}">No Name</span>
+                        <a th:href="@{/players/edit/{id}(id=${player.id})}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons mode_edit">mode_edit</i></a>
+                        
+                    </div>
+                    <div class="card-content">
+                      <p >ID# <span th:text="${player.id}"></span> </p>
+                     <p>Height:  <span th:text="${player.height}"></span> </p>
+                     <p>Shooting:  <span th:text="${player.shooting != 0}? ${player.shooting} : '-'"></span> </p>
+                     <p>Passing:  <span th:text="${player.passing != 0}? ${player.passing} : '-'"></span> </p>
+                     <p>Dribbling:  <span th:text="${player.dribbling != 0}? ${player.dribbling} : '-'"></span> </p>
+                     <p>Defense:  <span th:text="${player.defense != 0}? ${player.defense} : '-'"></span> </p>
+                     <p>Intangibles:  <span th:text="${player.intangibles != 0}? ${player.intangibles} : '-'"></span> </p>               
+                    </div>
+           
+                    <form action="#" th:action="@{/players/delete/{id}(id=${player.id})}" th:method="delete">
+				<button class="waves-effect red darken-2 btn-small" type="submit">Remove</button>
+			</form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    
+    
+    <div th:replace="fragments/nav :: foot" ></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

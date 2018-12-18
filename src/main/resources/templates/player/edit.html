@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Edit Player</title>
+	<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/index.css">  -->
+  
+</head>
+<body>
+
+	<h1>Edit Player</h1>
+		
+		
+ 	<form action="#" th:action="@{/players/edit}" th:object="${player}" th:method="put">
+ 		
+ 		
+ 		<input type="hidden" th:field="*{id}" />
+ 		<input type="hidden" th:field="*{name}" />
+ 		<input type="hidden" th:field="*{height}" />
+  
+ 		<h3>Shooting</h3>
+ 		<ul style="list-style-type:none">
+		  <li th:each="skill : ${skillValues}">
+		    <input type="radio" 
+		        th:field="*{shooting}"
+		        th:value="${skill}" />
+		    <label 
+		        th:for="${#ids.prev('shooting')}"
+		        th:text="${skill}"></label>
+		  </li>
+		</ul>
+		
+		<h3>Passing</h3>
+ 		<ul style="list-style-type:none">
+		  <li th:each="skill : ${skillValues}">
+		    <input type="radio" 
+		        th:field="*{passing}"
+		        th:value="${skill}" />
+		    <label 
+		        th:for="${#ids.prev('passing')}"
+		        th:text="${skill}"></label>
+		  </li>
+		</ul>
+		
+		<h3>Dribbling</h3>
+ 		<ul style="list-style-type:none">
+		  <li th:each="skill : ${skillValues}">
+		    <input type="radio" 
+		        th:field="*{dribbling}"
+		        th:value="${skill}" />
+		    <label 
+		        th:for="${#ids.prev('dribbling')}"
+		        th:text="${skill}"></label>
+		  </li>
+		</ul>
+		
+		<h3>Defense</h3>
+ 		<ul style="list-style-type:none">
+		  <li th:each="skill : ${skillValues}">
+		    <input type="radio" 
+		        th:field="*{defense}"
+		        th:value="${skill}" />
+		    <label 
+		        th:for="${#ids.prev('defense')}"
+		        th:text="${skill}"></label>
+		  </li>
+		</ul>
+		
+		<h3>Intangibles</h3>
+		<textarea th:field="*{intangibles}" placeholder="How did this player get your attention?" ></textarea>
+		<button type="submit">Save</button>
+ 	</form>
+ 		
+</body>
+</html>
